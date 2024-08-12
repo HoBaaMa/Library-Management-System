@@ -12,7 +12,11 @@ namespace LibraryManagementSystem
         private List<Book> books = new List<Book>(100);
         private List<Book> borrowedBooks = new List<Book>();
 
-        public void Display()
+        public void DisplayAllBooks()
+        {
+
+        }
+        public void DisplayBorrowedBooks()
         {
 
         }
@@ -24,5 +28,6 @@ namespace LibraryManagementSystem
         {
 
         }
+
     }
 }

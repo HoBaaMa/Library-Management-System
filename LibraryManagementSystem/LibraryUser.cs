@@ -10,7 +10,8 @@ namespace LibraryManagementSystem
     {
         public LibraryCard? LibraryID { get; set; }
 
-        public Book[] DisplayBooks ()
+
+        public void BorrowBook(Book book)
         {
 
         }
