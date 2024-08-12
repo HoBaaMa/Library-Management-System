@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem
 {
-    internal class Librarian
+    internal class Librarian : User
     {
+        public uint EmployeeId { get; set; }
+        public void AddBook (Book newBook)
+        {
+
+        }
+        public void RemoveBook (Book book)
+        {
+
+        }
     }
 }

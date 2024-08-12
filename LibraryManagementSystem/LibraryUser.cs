@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem
 {
-    internal class LibraryUser
+    internal class LibraryUser : User
     {
+        public LibraryCard? LibraryID { get; set; }
+
+        public Book[] DisplayBooks ()
+        {
+
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace LibraryManagementSystem
 {
     internal class LibraryCard
     {
+        public uint CardID { get; set; }
     }
 }
