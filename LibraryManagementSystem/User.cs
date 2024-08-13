@@ -9,9 +9,13 @@ namespace LibraryManagementSystem
     public abstract class User
     {
         public string? Name { get; set; }
-        public Book[] DisplayBooks()
+        protected User(string name)
         {
-
+            Name = name;
         }
+        //public Book[] DisplayBooks()
+        //{
+
+        //}
     }
 }
