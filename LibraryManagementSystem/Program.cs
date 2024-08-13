@@ -49,7 +49,7 @@
                                 librarian.RemoveBook(isbnToRemove, library);
                                 break;
                             case 3:
-                                library.DisplayAllBooks();
+                                librarian.DisplayABooks(library);
                                 break;
                             case 5:
                                 Console.WriteLine("Number of Available Books in The Library: " +
