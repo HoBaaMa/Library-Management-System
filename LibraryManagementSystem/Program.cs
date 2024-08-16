@@ -13,12 +13,13 @@
             if (userType == 'L')
             {
                 Console.WriteLine("Welcome Librarian! Pleae Enter Your Name: ");
-                string librarianName = Console.ReadLine();
+                string? librarianName = Console.ReadLine();
                 Librarian librarian = new Librarian(librarianName);
                 Console.WriteLine($"\nWelcome {librarian.Name} To Library Management System!");
                 bool runApp = true;
-                while (runApp) {
-                    Console.WriteLine("Please Choose To:\n" +
+                while (runApp)
+                {
+                    Console.WriteLine("\nPlease Choose To:\n" +
                         "1. Add Book\n" +
                         "2. Remove Book\n" +
                         "3. Display All Books\n" +
@@ -33,15 +34,15 @@
                         {
                             case 1:
                                 Console.WriteLine("Please Enter Book Title: ");
-                                string title = Console.ReadLine(); // Null Reference Exception
+                                string? title = Console.ReadLine(); // Null Reference Exception
                                 Console.WriteLine("Please Enter Book Author: ");
-                                string author = Console.ReadLine(); // Null Reference Exception
+                                string? author = Console.ReadLine(); // Null Reference Exception
                                 Console.WriteLine("Please Enter Book Year: ");
                                 ushort year = ushort.Parse(Console.ReadLine()); // Format Exception
                                 Console.WriteLine("Please Enter Book ISBN: ");
                                 uint isbn = uint.Parse(Console.ReadLine()); // Format Exception
                                 Book newBook = new Book(title, author, year, isbn);
-                                librarian.AddBook(newBook ,library);
+                                librarian.AddBook(newBook, library);
                                 break;
                             case 2:
                                 Console.WriteLine("Please Enter Book ISBN to Remove: ");
@@ -76,14 +77,48 @@
             }
             else if (userType == 'R')
             {
-
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Please Enter Valid Input (L/R)!");
-                Console.ResetColor();
+                Console.WriteLine("Welcome User! Pleae Enter Your Name: ");
+                string? userName = Console.ReadLine();
+                LibraryUser user = new LibraryUser(userName);
+                Console.WriteLine($"\nWelcome {user.Name} To Library System!");
+                bool runApp = true;
+                while (runApp)
+                {
+                    Console.WriteLine("\nPlease Choose To:\n" +
+                        "1. Borrow Book\n" +
+                        "2. Display All Books\n" +
+                        "3. Exit\n");
+                    ushort choice;
+                    if (ushort.TryParse(Console.ReadLine(), out choice))
+                    {
+                        switch (choice)
+                        {
+                            case 1:
+                                Console.Write("Please Enter The Book Name to Borrow: ");
+                                string? bookName = Console.ReadLine();
+                                Console.Write("Please Enter The Book Author Name: ");
+                                string? bookAuthor = Console.ReadLine();
+                                user.BorrowBook(bookName, bookAuthor, library);
+                                break;
+                            case 2:
+                                user.DisplayABooks(library);
+                                break;
+                            case 3:
+                                Console.WriteLine("\nExiting...");
+                                Thread.Sleep(1000);
+                                runApp = false;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Please Enter Valid Input (L/R)!");
+                        Console.ResetColor();
+                    }
+                }
             }
         }
     }
 }
+  

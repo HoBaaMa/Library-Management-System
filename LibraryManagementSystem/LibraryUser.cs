@@ -8,12 +8,16 @@ namespace LibraryManagementSystem
 {
     internal class LibraryUser : User
     {
-        public LibraryCard? LibraryID { get; set; }
+        public LibraryCard? UserID { get; set; }
 
-
-        public void BorrowBook(Book book)
+        public LibraryUser(string name) : base(name)
         {
+            
+        }
 
+        public void BorrowBook(string bookName, string bookAuthor, Library library)
+        {
+            library.BorrowBook(bookName, bookAuthor);
         }
     }
 }
