@@ -23,10 +23,18 @@ namespace LibraryManagementSystem
         {
             if (AvailableBookCount != 0)
             {
-                Console.WriteLine("Book Title\t Author\t Book Year\t ISBN");
+                int titleWidth = 30;
+                int authorWidth = 20;
+                int yearWidth = 6;
+                int isbnWidth = 13;
+
+                // Print header with fixed widths
+                Console.WriteLine($"{"Title".PadRight(titleWidth)}{"Author".PadRight(authorWidth)}{"Year".PadRight(yearWidth)}{"ISBN".PadRight(isbnWidth)}");
+
+                // Print each book with fixed widths
                 foreach (Book book in books)
                 {
-                    Console.WriteLine($"{book.Title}\t {book.Author}\t {book.Year}\t {book.ISBN}");
+                    Console.WriteLine($"{book.Title.PadRight(titleWidth)}{book.Author.PadRight(authorWidth)}{book.Year.ToString().PadRight(yearWidth)}{book.ISBN.ToString().PadRight(isbnWidth)}");
                     Thread.Sleep(1000);
                 }
             }
@@ -40,12 +48,22 @@ namespace LibraryManagementSystem
         }
         public void DisplayBorrowedBooks()
         {
+
             if (BorrowedBookCount != 0)
             {
-                Console.WriteLine("Book Title\t Author\t Book Year\t ISBN");
+                // Define column widths
+                int titleWidth = 30;
+                int authorWidth = 20;
+                int yearWidth = 6;
+                int isbnWidth = 13;
+
+                // Print header with fixed widths
+                Console.WriteLine($"{"Title".PadRight(titleWidth)}{"Author".PadRight(authorWidth)}{"Year".PadRight(yearWidth)}{"ISBN".PadRight(isbnWidth)}");
+
+                // Print each borrowed book with fixed widths
                 foreach (Book book in borrowedBooks)
                 {
-                    Console.WriteLine($"{book.Title}\t {book.Author}\t {book.Year}\t {book.ISBN}");
+                    Console.WriteLine($"{book.Title.PadRight(titleWidth)}{book.Author.PadRight(authorWidth)}{book.Year.ToString().PadRight(yearWidth)}{book.ISBN.ToString().PadRight(isbnWidth)}");
                     Thread.Sleep(1000);
                 }
             }
